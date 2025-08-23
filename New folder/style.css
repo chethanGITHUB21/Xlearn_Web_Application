@@ -299,6 +299,17 @@ header .logo {
     margin-top: 30px; /* Smaller top margin for mobile */
     padding: 1.2rem;
   }
+
+  .pricing-section {
+    flex-direction: column;   /* stack cards */
+    align-items: center;      /* center them */
+    gap: 20px;                /* spacing between cards */
+  }
+
+  .card {
+    width: 80%;   /* make cards take more width on mobile */
+    max-width: 300px;
+  }
 }
 
 
@@ -450,7 +461,7 @@ header .logo {
 /* FOOTER */
 .footer {
   /* background: #111; */
-  background-color: var(--footer-bag);
+  background-color: rgba(255, 255, 255, 0.2);
   color: #ddd;
   padding: 60px 20px 20px;
   margin-top: 60px;
@@ -538,6 +549,78 @@ header .logo {
   color: var(--text-color);
   transition: background 0.3s, color 0.3s;
 }
+
+/* Pricing Section */
+.pricing-section {
+  flex: 1.5;
+  display: flex;
+  gap: 30px;
+  padding: 20px;
+  justify-content: space-between; /* distribute cards across full width */
+  align-items: center;
+
+}
+
+/* Card Container */
+.card {
+  width: 250px;
+  height: 350px;
+  perspective: 1000px; /* enables 3D flip */
+}
+
+/* Inner Flip Area */
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Flip Effect on Hover */
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Front & Back Faces */
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.2); /* transparent white */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  text-align: center;
+  color: white;
+  backdrop-filter: blur(10px); /* glass effect */
+}
+
+/* Front Side */
+.card-front {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Back Side */
+.card-back {
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card-back ul {
+  list-style: none;
+  padding: 0;
+}
+
+.card-back li {
+  margin: 8px 0;
+}
+
 
 
 
