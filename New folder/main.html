@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>X-Learn</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body>
+  <!-- HEADER -->
+  <div class="container1">
+    <header class="header-animated">
+      <h1 class="logo">X-Learn</h1>
+      <nav>
+        <a href="#">Company</a>
+        <a href="#">Features</a>
+        <a href="#">About Us</a>
+        <a href="#">Contacts</a>
+      </nav>
+      <button class="btn-signin">Sign-in</button>
+
+      
+
+
+    <button class="nav-toggle" aria-label="Open navigation">&#9776;</button>
+    <div class="mobile-nav">
+        <a href="#">Company</a>
+        <a href="#">Features</a>
+        <a href="">About Us</a>
+        <a href="">Contacts</a>
+    </div>
+    <button id="theme-toggle" class="btn-theme">🌙 Dark</button>
+    </header>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="container">
+    <main class="intro">
+      <div class="intro-box">
+        <div class="tag-box">
+          <div class="tag">INTRODUCTION Δ</div>
+        </div>
+
+        <h1>EMAIL FOR<br>DEVELOPERS</h1>
+
+        <p class="description">
+          the best way to reach humans insted of spam folders,
+          delver transactional and marketing emails at scale.
+        </p>
+
+        <div class="button">
+          <a href="#" class="btn-get-started">Documentation &gt;</a>
+          <a href="#" class="btn-signin-main">Get Started &gt;</a>
+        </div>
+      </div><br><br>
+      <!-- Sticky Section 1 -->
+<section>
+  <div class="sticky-section">
+    <h2>First Topic Heading</h2>
+
+  </div>
+
+<div class="content">
+  <p>
+    Placeholder description for the first topic. You can add multiple paragraphs,
+    images, or anything here. This scrolls under the sticky heading.
+  </p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+  <p>Keep adding content for testing scroll effect...</p>
+</div>
+</section>
+
+<!-- Sticky Section 2 -->
+<section>
+  <div class="sticky-section">
+    <h2>Second Topic Heading</h2>
+
+  </div>
+  
+
+<div class="content">
+  <p>
+    Placeholder description for the second topic. Add your content here.
+  </p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+  <p>More dummy content to see sticky in action...</p>
+</div>
+</section>
+
+<section>
+  <div class="sticky-section">
+    <h2>third Topic Heading</h2>
+  </div>
+<div class="content">
+  <p>
+    Placeholder description for the second topic. Add your content here.
+  </p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+  <p>More dummy content to see sticky in action...</p>
+</div>
+</section>
+
+<section>
+  <div class="sticky-section">
+    <h2>fourth Topic Heading</h2>
+  </div>
+<div class="content">
+  <p>
+    Placeholder description for the second topic. Add your content here.
+  </p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+  <p>More dummy content to see sticky in action...</p>
+</div>
+</section>
+    </main>
+
+    <!-- Robot (Spline) -->
+    <spline-viewer
+      class="robot-3d"
+      url="https://prod.spline.design/sSqj-swOSk9f1XBD/scene.splinecode">
+    </spline-viewer>
+  </div>
+
+  <!-- Spline + AOS -->
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.48/build/spline-viewer.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+
+  document.querySelector('.nav-toggle').onclick = function() {
+    document.querySelector('.mobile-nav').classList.toggle('open');
+
+    
+  const toggleBtn = document.getElementById("theme-toggle");
+
+  // Apply saved theme
+  if (localStorage.getItem("theme") === "light") {
+    document.body.classList.add("light-mode");
+    toggleBtn.textContent = "☀️ Light";
+  }
+
+  toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("light-mode");
+
+    if (document.body.classList.contains("light-mode")) {
+      toggleBtn.textContent = "☀️ Light";
+      localStorage.setItem("theme", "light");
+    } else {
+      toggleBtn.textContent = "🌙 Dark";
+      localStorage.setItem("theme", "dark");
+    }
+  });
+
+
+};
+  </script>
+ <!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-container">
+    
+    <!-- Brand + Description -->
+    <div class="footer-brand">
+      <h2>X-Learn</h2>
+      <p>Empowering developers & learners with modern tools, courses, and resources.</p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-links">
+      <h3>Explore</h3>
+      <ul>
+        <li><a href="#">Courses</a></li>
+        <li><a href="#">Categories</a></li>
+        <li><a href="#">Features</a></li>
+        <li><a href="#">Pricing</a></li>
+      </ul>
+    </div>
+
+    <!-- For Learners -->
+    <div class="footer-links">
+      <h3>Learners</h3>
+      <ul>
+        <li><a href="#">Sign Up</a></li>
+        <li><a href="#">Login</a></li>
+        <li><a href="#">My Dashboard</a></li>
+        <li><a href="#">Certificates</a></li>
+      </ul>
+    </div>
+
+    <!-- For Instructors -->
+    <div class="footer-links">
+      <h3>Instructors</h3>
+      <ul>
+        <li><a href="#">Teach on X-Learn</a></li>
+        <li><a href="#">Instructor Dashboard</a></li>
+        <li><a href="#">Upload a Course</a></li>
+        <li><a href="#">Earnings</a></li>
+      </ul>
+    </div>
+
+    <!-- Support -->
+    <div class="footer-links">
+      <h3>Support</h3>
+      <ul>
+        <li><a href="#">Help Center</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">FAQs</a></li>
+        <li><a href="#">Report a Problem</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="footer-bottom">
+    <p>© 2025 X-Learn. All Rights Reserved.</p>
+    <div class="socials">
+      <a href="#">🌐</a>
+      <a href="#">📘</a>
+      <a href="#">🐦</a>
+      <a href="#">📸</a>
+      <a href="#">💼</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

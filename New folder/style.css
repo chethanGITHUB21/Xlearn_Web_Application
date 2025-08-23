@@ -1,0 +1,544 @@
+/* Default (Dark Mode) */
+:root {
+  --bg-color: #000000;     /* page background */
+  --text-color: #ffffff;   /* normal text */
+  --nav-bg: rgba(255, 255, 255, 0.1);
+  --section-bg: rgba(255, 255, 255, 0.15);
+  --footer-bg: #111111;
+}
+
+/* Light Mode */
+.light-mode {
+  --bg-color: #f9f9f9;
+  --text-color: #111111;
+  --nav-bg: rgba(0, 0, 0, 0.05);
+  --section-bg: #ffffff;
+  --footer-bg: #eaeaea;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* background-color: black; */
+  background-color: var(--bg-color);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  /* color: white; */
+  color: var(--text-color);
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.5;
+}
+
+
+/* HEADER */
+.container1 header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5rem;
+  background: black;
+  transform: translateY(-100%);
+  animation: slideDown 1.2s ease forwards;
+}
+
+@keyframes slideDown {
+  to {
+    transform: translateY(0);
+  }
+}
+
+header .logo {
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.container1 nav {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.container1 nav a {
+  font-size: 1rem;
+  letter-spacing: 0.1rem;
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s ease;
+}
+.container1 nav a:hover {
+  color: gray;
+}
+
+.btn-signin {
+  background-color: #dcdcdc;
+  color: black;
+  padding: 0.6rem 1.5rem;
+  border-radius: 50px;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+.btn-signin:hover {
+  background-color: gray;
+  color: white;
+}
+
+/* MAIN CONTENT */
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 8rem 2rem 2rem; /* padding top for header */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  gap: 3rem;
+}
+
+/* INTRO BOX WITH GRADIENT BORDER */
+.intro-box {
+  position: relative;
+  padding: 2rem;
+  border-radius: 20px;
+  background: black;
+  max-width: 500px;
+  z-index: 2;
+  margin-top: 90px; /* Added to bring intro section 50px down */
+  margin-left: 90px;
+}
+.intro-box::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #ff00ff, #6600ff, #00d9ff, #ff00ff);
+  background-size: 200% 200%;
+  animation: borderGlow 6s linear infinite;
+  z-index: -1;
+}
+@keyframes borderGlow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* TAG BOX */
+.tag-box {
+  position: relative;
+  width: 16rem;
+  height: 2.2rem;
+  border-radius: 50px;
+  background: linear-gradient(to right, #656565, #7f42a7, #6600c5, #5300a0, #757575, #656565);
+  background-size: 200%;
+  animation: animationGradient 2.5s linear infinite;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+  margin-bottom: 1.5rem;
+}
+@keyframes animationGradient {
+  to { background-position: 200%; }
+}
+.tag-box .tag {
+  position: absolute;
+  width: 97%;
+  height: 90%;
+  background-color: black;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.05rem;
+}
+
+/* INTRO TEXT */
+.intro-box h1 {
+  font-size: 3rem;
+  font-weight: 600;
+  margin: 1rem 0;
+  line-height: 1.2;
+  text-shadow: 0 0 8px rgba(128, 128, 128, 0.3);
+}
+
+.description {
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  max-width: 30rem;
+  color: black;
+  margin-bottom: 2rem;
+}
+
+/* BUTTONS */
+.button {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.btn-get-started {
+  text-decoration: none;
+  border: 2px solid white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transition: 0.3s ease;
+  color: white;
+}
+.btn-get-started:hover {
+  background-color: #1a1a1a;
+  color: #00d9ff;
+}
+.btn-signin-main {
+  text-decoration: none;
+  background-color: lightgray;
+  color: black;
+  padding: 0.6rem 1.8rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transition: background-color 0.2s ease;
+}
+.btn-signin-main:hover {
+  background-color: gray;
+  color: white;
+}
+
+/* ROBOT STYLING */
+.robot-3d {
+  width: 420px;    /* Increased from 380px */
+  height: 420px;
+  flex-shrink: 0;
+  pointer-events: auto;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 7rem;
+    gap: 2rem;
+  }
+  .robot-3d {
+    width: 300px;
+    height: 300px;
+    margin-bottom: 1rem;
+  }
+  .intro-box h1 {
+    font-size: 2.2rem;
+  }
+  .description {
+    font-size: 0.95rem;
+  }
+  .btn-get-started, .btn-signin-main {
+    font-size: 0.85rem;
+    padding: 0.5rem 1.2rem;
+  }
+}
+
+/* Container for robot + intro */
+.hero-section {
+  display: flex;
+  flex-direction: row;  /* Default: side by side */
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+/* Robot styling */
+.robot-3d {
+  width: 300px;
+  max-width: 40%;
+}
+
+/* Intro box */
+.intro-box {
+  flex: 1;
+}
+
+/* ----------- MOBILE FIX ----------- */
+@media (max-width: 768px) {
+
+    .container {
+    flex-direction: column;
+    align-items: center;
+    padding: 7rem 1rem 2rem; /* Reduce side padding */
+    gap: 2rem;
+    width: 100%;
+  }
+  .hero-section {
+    flex-direction: column; /* Stack vertically */
+  }
+
+  .robot-3d {
+    order: -1; /* Robot comes first */
+    max-width: 250%;
+    margin-bottom: 1rem;
+  }
+
+  .intro-box {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-top: 30px; /* Smaller top margin for mobile */
+    padding: 1.2rem;
+  }
+}
+
+
+/* ...existing code... */
+
+/* Hide nav links and only show logo + Sign In on small screens */
+@media (max-width: 500px) {
+  .container1 nav {
+    display: none;
+  }
+  .container1 header {
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+  }
+  .container1 .logo {
+    font-size: 1.5rem;
+  }
+  .btn-signin {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+
+
+}
+
+
+/* Hamburger button (hidden by default) */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
+/* Mobile nav (hidden by default) */
+.mobile-nav {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 1.5rem;
+  background: #111;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+  flex-direction: column;
+  min-width: 160px;
+  z-index: 2000;
+  padding: 1rem 0;
+}
+.mobile-nav a {
+  color: white;
+  text-decoration: none;
+  padding: 0.8rem 1.5rem;
+  display: block;
+  font-size: 1rem;
+  transition: background 0.2s;
+}
+.mobile-nav a:hover {
+  background: #222;
+}
+.mobile-nav.open {
+  display: flex;
+}
+
+/* Show hamburger and mobile nav on mobile */
+@media (max-width: 500px) {
+  .container1 nav {
+    display: none;
+  }
+  .nav-toggle {
+    display: block;
+  }
+  .btn-signin {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+  .container1 header {
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    position: relative;
+  }
+  .container1 .logo {
+    font-size: 1.5rem;
+  }
+}
+
+/* Make robot bigger on laptop screens */
+@media (min-width: 900px) {
+
+   .container {
+    position: relative;           /* Ensure robot can be absolutely positioned */
+  }
+
+  .robot-3d {
+    width: 700px !important;      /* Bigger size */
+    height: 600px !important;
+    max-width: none;
+    position: absolute;
+    right: 2rem;                   /* Move left */
+    top: 8rem;                    /* Adjust vertical position if needed */
+    z-index: 10;
+  }
+  
+  
+}
+
+/* Transparent sticky section */
+.sticky-section {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 100px; /* adjust depending on navbar height */
+  width: 100vw; /* full screen width */
+  min-height: 80px; /* height of the bar */
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: transparent; /* transparent white */
+  backdrop-filter: blur(6px); /* glassy effect */
+  -webkit-backdrop-filter: blur(6px);
+
+  z-index: 10;
+}
+
+/* Heading inside sticky section */
+.sticky-section h2 {
+  margin: 0;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: bold;
+  color: #fff; /* visible on dark background */
+  text-align: center;
+}
+
+/* Content space below each sticky section */
+.content {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 4rem 1rem; /* enough space for descriptions */
+  color: #ddd;
+  line-height: 1.6;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+}
+
+
+/* FOOTER */
+.footer {
+  /* background: #111; */
+  background-color: var(--footer-bag);
+  color: #ddd;
+  padding: 60px 20px 20px;
+  margin-top: 60px;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-brand h2 {
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.footer-brand p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.footer-links h3 {
+  color: #fff;
+  margin-bottom: 12px;
+  font-size: 16px;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  color: #ddd;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  margin-top: 40px;
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 40px auto 0;
+}
+
+.footer-bottom p {
+  font-size: 14px;
+  margin: 0;
+}
+
+.footer-bottom .socials a {
+  margin-left: 15px;
+  font-size: 18px;
+  color: #ddd;
+  transition: color 0.3s;
+}
+
+.footer-bottom .socials a:hover {
+  color: #fff;
+}
+
+.btn-theme {
+  margin-left: 10px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background: var(--card-bg);
+  color: var(--text-color);
+  transition: background 0.3s, color 0.3s;
+}
+
+
+
+
