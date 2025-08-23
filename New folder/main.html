@@ -18,9 +18,7 @@
         <a href="#">About Us</a>
         <a href="#">Contacts</a>
       </nav>
-      <button class="btn-signin">Sign-in</button>
-
-      
+      <button class="btn-signin">Sign-in</button>   
 
 
     <button class="nav-toggle" aria-label="Open navigation">&#9776;</button>
@@ -30,7 +28,7 @@
         <a href="">About Us</a>
         <a href="">Contacts</a>
     </div>
-    <button id="theme-toggle" class="btn-theme">🌙 Dark</button>
+    
     </header>
   </div>
 
@@ -93,11 +91,73 @@
     <h2>third Topic Heading</h2>
   </div>
 <div class="content">
-  <p>
+  <div class="para">
+    <p>
     Placeholder description for the second topic. Add your content here.
   </p>
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
   <p>More dummy content to see sticky in action...</p>
+
+  </div>
+  
+<!-- 💳 Pricing Section -->
+<div class="pricing-section">
+  <div class="card">
+    <div class="card-inner">
+      <!-- Front -->
+      <div class="card-front">
+        <h2>Basic</h2>
+        <p>Perfect for beginners starting out</p>
+      </div>
+      <!-- Back -->
+      <div class="card-back">
+        <h3>Basic Plan Features</h3>
+        <ul>
+          <li>✔ 5 Projects</li>
+          <li>✔ Community Support</li>
+          <li>✔ Limited Resources</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">
+        <h2>Premium</h2>
+        <p>For professionals growing their work</p>
+      </div>
+      <div class="card-back">
+        <h3>Premium Plan Features</h3>
+        <ul>
+          <li>✔ Unlimited Projects</li>
+          <li>✔ Priority Support</li>
+          <li>✔ Advanced Resources</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">
+        <h2>Premium Pro</h2>
+        <p>Best for enterprises & scaling teams</p>
+      </div>
+      <div class="card-back">
+        <h3>Premium Pro Features</h3>
+        <ul>
+          <li>✔ Unlimited Everything</li>
+          <li>✔ Dedicated Support</li>
+          <li>✔ Exclusive Tools</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
 </div>
 </section>
 
@@ -134,23 +194,7 @@
     
   const toggleBtn = document.getElementById("theme-toggle");
 
-  // Apply saved theme
-  if (localStorage.getItem("theme") === "light") {
-    document.body.classList.add("light-mode");
-    toggleBtn.textContent = "☀️ Light";
-  }
-
-  toggleBtn.addEventListener("click", () => {
-    document.body.classList.toggle("light-mode");
-
-    if (document.body.classList.contains("light-mode")) {
-      toggleBtn.textContent = "☀️ Light";
-      localStorage.setItem("theme", "light");
-    } else {
-      toggleBtn.textContent = "🌙 Dark";
-      localStorage.setItem("theme", "dark");
-    }
-  });
+  
 
 
 };
