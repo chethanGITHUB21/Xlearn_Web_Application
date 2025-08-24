@@ -265,6 +265,22 @@ header .logo {
 .robot-3d {
   width: 300px;
   max-width: 40%;
+  background-image: url("./gradient.png");
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* filter: brightness(2.4) contrast(1.9); */
+}
+
+.robot-3d::after{
+  content: "";
+  opacity: 102;
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  filter: blur(40px) brightness(50);
+  z-index: 0;
 }
 
 /* Intro box */
