@@ -456,7 +456,7 @@ header .logo {
 .sticky-section {
   position: -webkit-sticky;
   position: sticky;
-  top: 50px; /*adjust depending on navbar height */
+  top: 5px; /* adjust depending on navbar height */
   width: 100vw; /* full screen width */
   min-height: 80px; /* height of the bar */
   
