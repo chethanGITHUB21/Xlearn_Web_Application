@@ -66,8 +66,6 @@
     Placeholder description for the first topic. You can add multiple paragraphs,
     images, or anything here. This scrolls under the sticky heading.
   </p>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
-  <p>Keep adding content for testing scroll effect...</p>
 </div>
 </section>
 
@@ -75,18 +73,60 @@
 <section>
   <div class="sticky-section">
     <h2>Second Topic Heading</h2>
+  </div>
+
+  <!-- Flex Row -->
+  <div class="content-row">
+    
+    <!-- Left Side: Paragraph -->
+    <div class="content-text">
+      <p>
+        Placeholder description for the second topic. Add your content here.
+      </p>
+    </div>
+
+    <!-- Right Side: Login Box -->
+    <div class="login-body">      
+      <div class="form-container login-container">  
+        <!-- Sliding Switch -->
+        <div class="switch-container">
+          <div class="switch">
+            <input type="radio" id="teacherLogin" name="roleLogin" checked>
+            <label for="teacherLogin" class="teacher">Teacher</label>
+
+            <input type="radio" id="studentLogin" name="roleLogin">
+            <label for="studentLogin" class="student">Student</label>
+            <div class="slider"><b>User</b></div>
+          </div>
+        </div>
+
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" placeholder="Enter your username" required>
+          </div>
+
+          <div class="form-group">
+            <label for="loginPassword">Password:</label>
+            <input type="password" id="loginPassword" placeholder="Enter your password" required>
+          </div>
+
+          <button type="submit">Login</button>
+        </form>
+
+        <!-- Sign-up link -->
+        <p style="text-align:center; margin-top:15px; color:white; font-size:0.9rem;">
+          Don’t have an account? 
+          <a href="register.html" style="color:#66ccff; text-decoration:none; font-weight:bold;">
+            Sign up here
+          </a>
+        </p>
+      </div>
+    </div>
 
   </div>
-  
-
-<div class="content">
-  <p>
-    Placeholder description for the second topic. Add your content here.
-  </p>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
-  <p>More dummy content to see sticky in action...</p>
-</div>
 </section>
+
 
 <!-- Sticky Section 3 -->
 <section>
@@ -98,8 +138,7 @@
     <p>
     Placeholder description for the second topic. Add your content here.
   </p>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
-  <p>More dummy content to see sticky in action...</p>
+  
 
   </div>
   
@@ -162,6 +201,7 @@
 </div>
 </section>
 
+<!-- Sticky-section 5 -->
 <section>
   <div class="sticky-section">
     <h2>Teaching Professional</h2>
@@ -313,6 +353,46 @@
     }
     lastScrollY = window.scrollY;
   });
+
+  document.getElementById("loginForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    // Get role from switch
+    const role = document.getElementById("teacherLogin").checked ? "Teacher" : "Student";
+
+    // Here you would normally validate username + password
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("loginPassword").value;
+
+    if (!username || !password) {
+      alert("Please fill in both fields.");
+      return;
+    }
+
+    // Redirect based on role
+    if (role === "Teacher") {
+      window.location.href = "teacher-dashboard.html"; // change to your href
+    } else {
+      window.location.href = "student-dashboard.html"; // change to your href
+    }
+  });
+
+  const teacherRadio = document.getElementById("teacherLogin");
+const studentRadio = document.getElementById("studentLogin");
+const loginBtn = document.querySelector("form button");
+
+function updateButtonColor() {
+  if (studentRadio.checked) {
+    loginBtn.style.background = "linear-gradient(135deg, #2ecc71, #4cd964)";
+  } else {
+    loginBtn.style.background = "linear-gradient(135deg, #0072ff, #00c6ff)";
+  }
+}
+
+// Run on page load + whenever switch changes
+updateButtonColor();
+teacherRadio.addEventListener("change", updateButtonColor);
+studentRadio.addEventListener("change", updateButtonColor);
   </script>
  <!-- FOOTER -->
 <footer class="footer">
