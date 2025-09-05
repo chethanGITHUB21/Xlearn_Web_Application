@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>E‑Learning Platform – Feature Showcase</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --bg-soft: #0f1630;
+      --card: #121a3b;
+      --text: #e9eefc;
+      --muted: #b7c4ff;
+      --accent: #7c9cff;
+      --ring: #99a8ff55;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f7f9ff;
+        --bg-soft: #eef2ff;
+        --card: #ffffff;
+        --text: #0f172a;
+        --muted: #334155;
+        --accent: #3b82f6;
+        --ring: #3b82f626;
+        --shadow: 0 12px 28px rgba(2,6,23,.08);
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 80% -10%, var(--bg-soft), transparent 60%),
+                  radial-gradient(1000px 500px at -10% 120%, var(--bg-soft), transparent 60%),
+                  var(--bg);
+      color: var(--text);
+    }
+
+    /* Layout */
+    .wrap {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+    @media (max-width: 900px) {
+      .wrap { grid-template-columns: 1fr; }
+      .sidebar { position: static; top: auto; }
+    }
+
+    header.hero {
+      grid-column: 1 / -1;
+      background: linear-gradient(135deg, var(--bg-soft), transparent);
+      border: 1px solid rgba(124,156,255,.15);
+      border-radius: calc(var(--radius) + 6px);
+      box-shadow: var(--shadow);
+      padding: 28px 28px;
+    }
+    .hero h1 {
+      margin: 0 0 8px;
+      font-size: clamp(28px, 3.8vw, 42px);
+      letter-spacing: -0.02em;
+    }
+    .hero p { margin: 0; color: var(--muted); }
+
+    /* Sidebar nav */
+    .sidebar {
+      position: sticky;
+      top: 16px;
+      align-self: start;
+      background: linear-gradient(180deg, var(--card), transparent);
+      border: 1px solid rgba(124,156,255,.18);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: var(--shadow);
+    }
+    .sidebar h3 {
+      margin: 0 0 8px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: var(--muted);
+    }
+    .nav {
+      list-style: none;
+      margin: 0; padding: 0;
+      display: grid; gap: 6px;
+    }
+    .nav a {
+      display: block;
+      padding: 10px 12px;
+      border-radius: 12px;
+      text-decoration: none;
+      color: var(--text);
+      border: 1px solid transparent;
+    }
+    .nav a:hover { background: rgba(124,156,255,.12); border-color: var(--ring); }
+
+    /* Sections */
+    main { display: grid; gap: 18px; }
+    section.feature {
+      background: linear-gradient(180deg, var(--card), transparent);
+      border: 1px solid rgba(124,156,255,.18);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+    .feature-inner {
+      display: grid; gap: 14px;
+      grid-template-columns: 60px 1fr;
+      align-items: start;
+    }
+    .feature h2 { margin: 0; font-size: 20px; letter-spacing: -0.01em; }
+    .feature p { margin: 4px 0 0; color: var(--muted); }
+
+    .pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      color: var(--muted);
+      border: 1px solid rgba(124,156,255,.25);
+      background: rgba(124,156,255,.08);
+      cursor: pointer;
+    }
+
+    /* Footer */
+    footer {
+      grid-column: 1 / -1;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 12px; flex-wrap: wrap;
+      color: var(--muted);
+      padding: 16px 6px 28px;
+    }
+
+    /* Simple icon style */
+    .icon {
+      width: 56px; height: 56px; border-radius: 14px;
+      border: 1px solid rgba(124,156,255,.22);
+      background:
+        radial-gradient(180px 100px at 100% 0%, rgba(124,156,255,.18), transparent 60%),
+        linear-gradient(180deg, rgba(124,156,255,.12), rgba(124,156,255,.04));
+      display: grid; place-items: center;
+    }
+    .icon svg { width: 28px; height: 28px; fill: currentColor; color: var(--accent); }
+
+    /* Utility */
+    .row { display: grid; grid-template-columns: 1fr; gap: 10px; }
+    .badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <h1>Feature Showcase</h1>
+      <p>The ten core capabilities/features of the X-Learn, an E-Learning platform. Use the menu bar on the left to jump to any feature.</p>
+    </header>
+
+    <aside class="sidebar" aria-label="Feature navigation">
+      <h3>Features</h3>
+      <ul class="nav">
+        <li><a href="#feature-1">1. Course Management</a></li>
+        <li><a href="#feature-2">2. Learning Tools</a></li>
+        <li><a href="#feature-3">3. Practice Hub</a></li>
+        <li><a href="#feature-4">4. Live Sessions (Subscription)</a></li>
+        <li><a href="#feature-5">5. Gamification</a></li>
+        <li><a href="#feature-6">6. Personalization</a></li>
+        <li><a href="#feature-7">7. Notifications & Reminders</a></li>
+        <li><a href="#feature-8">8. Analytics & Reports</a></li>
+        <li><a href="#feature-9">9. Support & Help</a></li>
+        <li><a href="#feature-10">10. Unique Add-ons</a></li>
+      </ul>
+    </aside>
+
+    <main>
+      <!-- 1 -->
+      <section class="feature" id="feature-1">
+        <div class="feature-inner">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2Zm1 17.93A8.006 8.006 0 0 1 5.07 13H8a1 1 0 0 0 1-1V9.41a1 1 0 0 0-.29-.71L6.17 6.17A8 8 0 0 1 13 3Z"/></svg>
+          </div>
+          <div class="row">
+            <h2>Course Management</h2>
+            <p>The purpose of this feature is to make it effortless to find courses, jump back in, and know what’s next. Enrolled courses in grid/list with filters (status, difficulty, tags).Continue where you left off (stores last video timestamp/lesson ID).</p>
+            <div class="badges">
+              <span class="pill">Progress tracking</span>
+              <span class="pill">Schedules</span>
+              <span class="pill">UX notes</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2 -->
+      <section class="feature" id="feature-2">
+        <div class="feature-inner">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M3 5h18v14H3zm7 3 6 4-6 4z"/></svg>
+          </div>
+          <div class="row">
+            <h2>Learning Tools</h2>
+            <p>Deepen understanding inside each lesson. keyboard shortcuts, picture-in-picture and autosave notes.average playback speed, quiz correctness first-try vs second-try, note-taking frequency.</p>
+            <div class="badges">
+              <span class="pill">Interactive player</span>
+              <span class="pill">In-lesson quizzes/assignments </span>
+              <span class="pill">Bookmark / Save for later </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3 -->
+      <section class="feature" id="feature-3">
+        <div class="feature-inner">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M5 4h14v2H5zm0 6h14v2H5zm0 6h10v2H5z"/></svg>
+          </div>
+          <div class="row">
+            <h2>Practice Hub</h2>
+            <p>Turn knowledge into skills via deliberate practice. Coding challenges with embedded IDE (run tests, show diffs, complexity notes). Aptitude & reasoning bank (topic-tagged, with worked solutions). Timed practice (mock exam mode, section wise timers, review flags).</p>
+            <div class="badges">
+              <span class="pill">Coding challenges </span>
+              <span class="pill">Timed practice </span>
+              <span class="pill">Aptitude & reasoning test</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4 -->
+      <section class="feature" id="feature-4">
+        <div class="feature-inner">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 0 0-2 2v14l4-4h12a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/></svg>
+          </div>
+          <div class="row">
+            <h2>Live Sessions (Subscription)</h2>
+            <p>Real-time learning and mentorship. Live classes with chat, reactions, polls and whiteboard. Real-time Q&A (upvote questions); poll analytics. Recordings auto-indexed by chapters and searchable transcript. Mock interviews (mentor rubric + recorded feedback).</p>
+            <div class="badges">
+              <span class="pill">webinars</span>
+              <span class="pill">Live classes </span>
+              <span class="pill">Mock interviews</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5 -->
+      <section class="feature" id="feature-5">
+        <div class="feature-inner">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16v10H5.17L4 15.17zM6 18h12v2H6z"/></svg>
+          </div>
+          <div class="row">
+            <h2>Gamification</h2>
+            <p>Sustain motivation and healthy competition. Badges & certificates (verifiable link, shareable). Points & rewards (convert to perks, e.g., 1:1 mentor credits). Leaderboards (friends, cohort, global; opt-in). Streaks (daily/weekly) with gentle recovery grace period.</p>
+            <div class="badges">
+              <span class="pill">Personalized challenges </span>
+              <span class="pill">Badges & certificates </span>
+              <span class="pill">Streaks</span>
+              <span class="pill">Points & rewards </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6 -->
+      <section class="feature" id="feature-6">
+        <div class="feature-inner">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M8 3h8v2H8zm-3 4h14v2H5zm2 4h10v2H7zm-3 4h16v2H4z"/></svg>
+          </div>
+          <div class="row">
+            <h2>Personalization</h2>
+            <p>It makes the dashboard feel “yours”. Custom widgets: drag/drop, resize; pick cards (Progress, To-Do, Goals, Streak, Recommendations, Calendar). Theme: Dark/Light; readable fonts; dyslexia-friendly mode. Learning style presets: video-first / text-first / practice-heavy and adaptive.</p>
+            <div class="badges">
+              <span class="pill">Theme</span>
+              <span class="pill">Custom widgets</span>
+              <span class="pill">Learning style presets</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7 -->
+      <section class="feature" id="feature-7">
+        <div class="feature-inner">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M3 3h2v18H3zm4 10h2v8H7zm4-6h2v14h-2zm4 4h2v10h-2zm4-8h2v18h-2z"/></svg>
+          </div>
+          <div class="row">
+            <h2>Notifications & Reminders</h2>
+            <p>It's nudge, don’t nag. Tutor announcements and course updates with mute/snooze. In-app, push, email (user-configurable). open/click rates, on-time submission uplift.</p>
+            <div class="badges">
+              <span class="pill">Channels</span>
+              <span class="pill">Smart digests</span>
+              <span class="pill">alerts</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8 -->
+      <section class="feature" id="feature-8">
+        <div class="feature-inner">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </div>
+          <div class="row">
+            <h2>Analytics & Reports</h2>
+            <p>It's a Insight → progress. Learning history (timeline, heatmap). Strength/weakness by topic from quizzes & practice. Time spent (daily/weekly) and focus vs passive watch time.</p>
+            <div class="badges">
+              <span class="pill">Goals</span>
+              <span class="pill">Learning history</span>
+              <span class="pill">Time spent</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 9 -->
+      <section class="feature" id="feature-9">
+        <div class="feature-inner">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M4 6h16v2H4zm0 4h10v2H4zm0 4h16v2H4z"/></svg>
+          </div>
+          <div class="row">
+            <h2>Support & Help</h2>
+            <p>Quick self-serve + real humans when needed. Guides with search and step-by-step articles. Live chat (tutor/support) + ticketing for tech issues. Peer study groups & mentoring (opt-in cohorts, interest tags).</p>
+            <div class="badges">
+              <span class="pill">FAQ/Guides</span>
+              <span class="pill">Live chat</span>
+              <span class="pill">mentoring</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 10 -->
+      <section class="feature" id="feature-10">
+        <div class="feature-inner">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"/></svg>
+          </div>
+          <div class="row">
+            <h2>Unique Add-ons</h2>
+            <p>Make learning translate to careers and community. Suggests next courses; skill gap analysis; certs to target; portfolio tracker. Challenge friends, private leagues, time-boxed quiz duels with anti-cheat.</p>
+            <div class="badges">
+              <span class="pill">Career Roadmap</span>
+              <span class="pill">Competitive Learning Mode</span>
+              <span class="pill">Data/KPIs</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span></span>
+      <span></span>
+    </footer>
+  </div>
+
+  <script>
+    // Smooth scroll for better UX
+    document.querySelectorAll('.nav a').forEach(a => {
+      a.addEventListener('click', e => {
+        const id = a.getAttribute('href');
+        const el = document.querySelector(id);
+        if (el) {
+          e.preventDefault();
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
