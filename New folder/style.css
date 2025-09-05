@@ -978,3 +978,133 @@ form {
 .login-body {
   flex: 0 0 350px; /* fixed width */
 }
+
+/* slider section css*/
+
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  width: 80%;       /* wider but controlled */
+  max-width: 1000px; /* prevent too wide on big screens */
+  height: 400px;
+  margin: 50px auto; /* center horizontally */
+  background: #eeececb0;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  backdrop-filter: blur(10px);
+}
+
+.carousel-container {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%; /* no need for 300% now, handled by flex */
+}
+
+    .slide {
+  flex: 0 0 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;   /* internal spacing for content */
+}
+
+.text-box {
+  width: 50%;
+  padding-left: 100px;
+}
+
+    .text-box h2 {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .text-box p {
+      font-size: 1rem;
+      margin-bottom: 20px;
+      color: #444;
+    }
+
+    .btn {
+      background: #7d2ae8;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+
+    .image-box {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* NEW - makes button position relative to this box */
+}
+
+
+    .image-box img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    /* Arrows */
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #fff;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      z-index: 3;
+    }
+    .arrow.left {
+      left: 10px;
+    }
+    .arrow.right {
+      right: 10px;
+    }
+
+    /* Blur only the last slide’s image when active */
+    .slide:last-child.active .image-box img {
+      filter: blur(5px) brightness(0.7);
+      transition: filter 0.5s ease;
+    }
+
+    /* View More button */
+    .view-more {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 12px 28px;
+  background: rgba(255, 255, 255, 0.9);
+  color: black;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  display: none;
+  z-index: 10; /* make sure it’s above blurred image */
+  transition: all 0.4s ease;
+}
+
+
+    .view-more:hover {
+      background: #005bb5;
+      color: white;
+      transform: translate(-50%, -50%) scale(1.1);
+    }

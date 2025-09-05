@@ -16,7 +16,7 @@
       <h1 class="logo" data-aos="fade-down-right" data-aos-duration="1200">X-Learn</h1>
       <nav>
         <a href="#" data-aos="fade-down" data-aos-duration="1000">Company</a>
-        <a href="#" data-aos="fade-down" data-aos-duration="1200" >Features</a>
+        <a href="./features.html" data-aos="fade-down" data-aos-duration="1200" >Features</a>
         <a href="#" data-aos="fade-down" data-aos-duration="1300">About Us</a>
         <a href="#" data-aos="fade-down" data-aos-duration="1400">Contacts</a>
       </nav>
@@ -78,11 +78,92 @@
   <!-- Flex Row -->
   <div class="content-row">
     
-    <!-- Left Side: Paragraph -->
+    <!-- Left Side: slider -->
     <div class="content-text">
-      <p>
-        Placeholder description for the second topic. Add your content here.
-      </p>
+      <div class="carousel">
+    <button class="arrow left">&#8249;</button>
+    <div class="carousel-container" id="carousel">
+      
+      <!-- Slide 1 -->
+      <div class="slide">
+        <div class="text-box">
+          <h2>Go further in web development</h2>
+          <p>Subscribe to a collection of our top courses in JavaScript, CSS, React, and more with Personal Plan.</p>
+          <button class="btn">Learn more</button>
+        </div>
+        <div class="image-box">
+          <img src="https://via.placeholder.com/500x350" alt="Web Development">
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="slide">
+        <div class="text-box">
+          <h2>Master Python for AI</h2>
+          <p>Learn AI, ML, and Data Science with hands-on Python projects and industry use cases.</p>
+          <button class="btn">Start Learning</button>
+        </div>
+        <div class="image-box">
+          <img src="https://via.placeholder.com/500x350/4CAF50/ffffff" alt="Python AI">
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="slide">
+        <div class="text-box">
+          <h2>Master Python for AI</h2>
+          <p>Learn AI, ML, and Data Science with hands-on Python projects and industry use cases.</p>
+          <button class="btn">Start Learning</button>
+        </div>
+        <div class="image-box">
+          <img src="https://via.placeholder.com/500x350/4CAF50/ffffff" alt="Python AI">
+        </div>
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="slide">
+        <div class="text-box">
+          <h2>Go further in web development</h2>
+          <p>Subscribe to a collection of our top courses in JavaScript, CSS, React, and more with Personal Plan.</p>
+          <button class="btn">Learn more</button>
+        </div>
+        <div class="image-box">
+          <img src="https://via.placeholder.com/500x350" alt="Web Development">
+        </div>
+      </div>
+
+      <!-- Slide 5 -->
+      <div class="slide">
+        <div class="text-box">
+          <h2>Go further in web development</h2>
+          <p>Subscribe to a collection of our top courses in JavaScript, CSS, React, and more with Personal Plan.</p>
+          <button class="btn">Learn more</button>
+        </div>
+        <div class="image-box">
+          <img src="https://via.placeholder.com/500x350" alt="Web Development">
+        </div>
+      </div>
+
+      <!-- Slide 6 (last slide with View More) -->
+      <div class="slide">
+        <div class="text-box">
+          <h2>Explore More Content</h2>
+          <p>See our complete gallery of tutorials, projects, and case studies.</p>
+        </div>
+        <div class="image-box">
+          <img src="https://via.placeholder.com/500x350/ff5722/ffffff" alt="Gallery Preview">
+          <!-- Button INSIDE image-box -->
+          <button class="view-more" id="viewMoreBtn" onclick="alert('Redirect to gallery or more content')">
+            View More
+          </button>
+        </div>
+      </div>
+
+      
+
+    </div>
+    <button class="arrow right">&#8250;</button>
+  </div>
     </div>
 
     <!-- Right Side: Login Box -->
@@ -393,6 +474,39 @@ function updateButtonColor() {
 updateButtonColor();
 teacherRadio.addEventListener("change", updateButtonColor);
 studentRadio.addEventListener("change", updateButtonColor);
+
+// carousel script
+const carousel = document.getElementById('carousel');
+    const slides = document.querySelectorAll('.slide');
+    const viewMoreBtn = document.getElementById('viewMoreBtn');
+    let index = 0;
+
+    function updateSlide() {
+      carousel.style.transform = `translateX(${-index * 100}%)`;
+
+      slides.forEach(slide => slide.classList.remove('active'));
+      slides[index].classList.add('active');
+
+      // Show button only on last slide
+      if (index === slides.length - 1) {
+        viewMoreBtn.style.display = 'block';
+      } else {
+        viewMoreBtn.style.display = 'none';
+      }
+    }
+
+    document.querySelector('.arrow.left').addEventListener('click', () => {
+      index = (index > 0) ? index - 1 : slides.length - 1;
+      updateSlide();
+    });
+
+    document.querySelector('.arrow.right').addEventListener('click', () => {
+      index = (index < slides.length - 1) ? index + 1 : 0;
+      updateSlide();
+    });
+
+    // Initialize
+    updateSlide();
   </script>
  <!-- FOOTER -->
 <footer class="footer">
